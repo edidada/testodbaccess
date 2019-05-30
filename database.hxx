@@ -59,7 +59,7 @@ create_database (int& argc, char* argv[])
   }
 
 #if defined(DATABASE_MYSQL)
-  auto_ptr<database> db (new odb::mysql::database (argc, argv));
+  auto_ptr<database> db (new odb::mysql::database (argc, argv,false,"utf8"));
 #elif defined(DATABASE_SQLITE)
   auto_ptr<database> db (
     new odb::sqlite::database (
