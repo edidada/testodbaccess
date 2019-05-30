@@ -7,3 +7,5 @@ Jane Y Doe jane@doe.com 29
 John X Doe john@doe.com 31
 
 ```
+
+odb不支持汉字
