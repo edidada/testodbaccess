@@ -23,10 +23,10 @@ main (int argc, char* argv[])
     auto_ptr<database> db (create_database (argc, argv));
 
     {
-      person john ("john@doe.com", "John", "X", "Doe", 31);
-      person jane ("jane@doe.com", "Jane", "Y", "Doe", 29);
-//      person john ("杂模john@doe.com", "John", "X", "Doe", 31);
-//      person jane ("jane@doe.com杂模", "J杂模ane", "Y", "Doe", 29);
+//      person john ("john@doe.com", "John", "X", "Doe", 31);
+//      person jane ("jane@doe.com", "Jane", "Y", "Doe", 29);
+      person john ("杂模john@doe.com", "John", "X", "Doe", 31);
+      person jane ("jane@doe.com杂模", "J杂模ane", "Y", "Doe", 29);
 
       transaction t (db->begin ());
       db->persist (john);
