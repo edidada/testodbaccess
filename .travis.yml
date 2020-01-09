@@ -1,0 +1,35 @@
+language: cpp
+sudo: required
+dist: xenial
+compiler:
+  - gcc
+  - clang
+os:
+  - linux
+install:
+  - sudo apt-get install libgtest-dev -y
+  - sudo apt-get install libcrypto++* -y
+  - sudo apt-get install libmysqlclient-dev libgflags-dev odb libodb-dev libodb-mysql-dev -y
+  - export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/include/mysql
+  - sudo ldconfig
+
+before_script:
+  # create a build folder for the out-of-source build
+  - mkdir build
+  # switch to build directory
+  - cd build
+  # run cmake; here we assume that the project's
+  # top-level CMakeLists.txt is located at '..'
+  - cmake ..
+addons:
+  apt:
+    update: true
+
+env:
+  - BUILD_TYPE=debug
+  - BUILD_TYPE=release
+script:
+  # once CMake has done its job we just build using make as usual
+  - sudo make
+  # if the project uses ctest we can run the tests like this
+  # - make test
