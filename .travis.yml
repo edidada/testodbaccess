@@ -7,9 +7,7 @@ compiler:
 os:
   - linux
 install:
-  - sudo apt-get install libgtest-dev -y
-  - sudo apt-get install libcrypto++* -y
-  - sudo apt-get install libmysqlclient-dev libgflags-dev odb libodb-dev libodb-mysql-dev -y
+  - sudo apt-get install libmysqlclient-dev odb libodb-dev libodb-mysql-dev -y
   - export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/include/mysql
   - sudo ldconfig
 
