@@ -34,3 +34,5 @@ script:
   - make VERBOSE=1
   # if the project uses ctest we can run the tests like this
   # - make test
+  - mysql --user=travis --database=odb_test < person.sql
+  - ./testodbaccess  --user root --password "" --database odb_test --host 127.0.0.1
