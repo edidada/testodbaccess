@@ -14,7 +14,10 @@ install:
   - sudo ldconfig
 
 before_script:
-  - sudo mysql -e 'CREATE DATABASE wechat_ticket;'
+  - pwd
+  - ls
+  - mysql --user=travis --database=odb_test < person.sql
+  - sudo mysql -e 'CREATE DATABASE odb_test;'
   # create a build folder for the out-of-source build
   - mkdir build
   # switch to build directory
@@ -34,5 +37,4 @@ script:
   - make VERBOSE=1
   # if the project uses ctest we can run the tests like this
   # - make test
-  - mysql --user=travis --database=odb_test < person.sql
   - ./testodbaccess  --user root --password "" --database odb_test --host 127.0.0.1
