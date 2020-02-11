@@ -12,7 +12,6 @@ install:
   - sudo apt-get install libmysqlclient-dev odb libodb-dev libodb-mysql-dev -y
   - export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/include/mysql
   - sudo ldconfig
-
 before_script:
   - pwd
   - ls
@@ -28,7 +27,6 @@ before_script:
 addons:
   apt:
     update: true
-
 env:
   - BUILD_TYPE=debug
   - BUILD_TYPE=release
@@ -37,4 +35,4 @@ script:
   - make VERBOSE=1
   # if the project uses ctest we can run the tests like this
   # - make test
-  - ./testodbaccess  --user root --password "" --database odb_test --host 127.0.0.1
+  - ./travis_driver  --user root --password "" --database odb_test --host 127.0.0.1
