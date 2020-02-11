@@ -31,6 +31,6 @@ env:
   - BUILD_TYPE=release
 script:
   # once CMake has done its job we just build using make as usual
-  - sudo make
+  - make VERBOSE=1
   # if the project uses ctest we can run the tests like this
   # - make test
