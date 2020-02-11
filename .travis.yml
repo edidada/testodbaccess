@@ -16,8 +16,8 @@ install:
 before_script:
   - pwd
   - ls
-  - mysql --user=travis --database=odb_test < person.sql
   - sudo mysql -e 'CREATE DATABASE odb_test;'
+  - mysql --user=travis --database=odb_test < person.sql
   # create a build folder for the out-of-source build
   - mkdir build
   # switch to build directory
