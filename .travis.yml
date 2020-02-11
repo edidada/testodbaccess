@@ -6,6 +6,8 @@ compiler:
   - clang
 os:
   - linux
+services:
+	- mysql
 install:
   - sudo apt-get install libmysqlclient-dev odb libodb-dev libodb-mysql-dev -y
   - export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/include/mysql
