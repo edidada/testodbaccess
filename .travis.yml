@@ -7,13 +7,14 @@ compiler:
 os:
   - linux
 services:
-	- mysql
+  - mysql
 install:
   - sudo apt-get install libmysqlclient-dev odb libodb-dev libodb-mysql-dev -y
   - export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/include/mysql
   - sudo ldconfig
 
 before_script:
+  - sudo mysql -e 'CREATE DATABASE wechat_ticket;'
   # create a build folder for the out-of-source build
   - mkdir build
   # switch to build directory
